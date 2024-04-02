@@ -18,14 +18,14 @@ def build_model() -> Model:
     input_layer = Input(shape=(24, 24, 1))
     
     # Define the convolutional layers.
-    conv1 = Conv2D(32, (3, 3), activation='relu')(input_layer)
+    conv1 = Conv2D(24, (3, 3), activation='relu')(input_layer)
     pool1 = MaxPooling2D((2, 2))(conv1)
-    conv2 = Conv2D(64, (3, 3), activation='relu')(pool1)
+    conv2 = Conv2D(12, (3, 3), activation='relu')(pool1)
     pool2 = MaxPooling2D((2, 2))(conv2)
     
     # Define the fully connected layers.
     flat = Flatten()(pool2)
-    dense = Dense(128, activation='relu')(flat)
+    dense = Dense(16, activation='relu')(flat)
     output_layer = Dense(2)(dense)
     
     # Define the model.
@@ -41,6 +41,9 @@ if __name__ == '__main__':
     
     # Compile the model.
     model.compile(optimizer=Adam(), loss=MeanSquaredError())
+
+    model.summary()
+    input()
 
     # Generate a dataset for training the model.
     train_X, train_Y = generate_data(samples=16384)
