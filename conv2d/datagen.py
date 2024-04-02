@@ -12,7 +12,7 @@ def generate_data(samples: int = 1000) -> tuple[np.ndarray, np.ndarray]:
 
     The bottom left corner of each image is at (-1, -1) and the top right corner is at (1, 1).
 
-    Return a tuple containing the images and the vertices of the triangle that is in the corresponding image.
+    Return a tuple containing the images and the centroid of the triangle that is in the corresponding image.
     '''
     # Initialize the array of images.
     X = np.zeros((samples, 24, 24, 1))
