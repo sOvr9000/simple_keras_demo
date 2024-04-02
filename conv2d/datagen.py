@@ -41,7 +41,7 @@ if __name__ == '__main__':
     # Generate a dataset.
     X, Y = generate_data()
 
-    # Display the each image scaled up by a factor of 16 along both dimensions.
+    # Display each image scaled up by a factor of 16 along both dimensions.
     for img, centroid in zip(X, Y):
         print(centroid)
         cv2.imshow('Triangle', cv2.resize(img[::-1], (384, 384), interpolation=cv2.INTER_NEAREST))
